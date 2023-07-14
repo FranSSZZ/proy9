@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Experiencia index{% endblock %}
+
+{% block body %}
+    <h1>Experiencia index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Años</th>
+                <th>Organizacion</th>
+                <th>Cargo</th>
+                <th>Responsabilidades</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for experiencium in experiencias %}
+            <tr>
+                <td>{{ experiencium.id }}</td>
+                <td>{{ experiencium.años }}</td>
+                <td>{{ experiencium.organizacion }}</td>
+                <td>{{ experiencium.cargo }}</td>
+                <td>{{ experiencium.responsabilidades }}</td>
+                <td>
+                    <a href="{{ path('app_experiencia_show', {'id': experiencium.id}) }}">show</a>
+                    <a href="{{ path('app_experiencia_edit', {'id': experiencium.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_experiencia_new') }}">Create new</a>
+{% endblock %}
