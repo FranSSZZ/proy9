@@ -35,5 +35,5 @@ const Dperso = () => {
   );
 }
 
-export default DPerso;
+export default Dperso;
 
